@@ -1,0 +1,28 @@
+.header_container {
+    position: relative;
+    border: 1px solid red;
+}
+
+.menu_left {
+    display: flex;
+    position: relative;
+    left: 0;
+    justify-content: space-between;
+}
+
+.menu_right {
+    border: 1px blue solid;
+    display: flex;
+    position: absolute;
+    top: 0;
+    right: 0;
+    justify-content: space-between;
+}
+
+.menu_left li {
+    margin: 0 15px;
+}
+
+.menu_right li {
+    margin: 0 15px;
+}
