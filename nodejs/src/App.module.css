@@ -4,7 +4,7 @@
 
 .app {
     position: relative;
-    width: 25%;
+    width: 30%;
     margin: 10% auto;
     padding: 1% 1%;
     background-color: white;
@@ -18,9 +18,9 @@
     padding: 0;
 }
 
-.app_body {
+/* .app_body {
     
-}
+} */
 
 input {
     width: 90%;
@@ -87,4 +87,14 @@ button:hover {
 .app_footer button {
     font-weight: bold;
     padding: 10px;
+}
+
+.completed_tasks {
+    margin: 0;
+    padding: 10px 0;
+    font-size: 20px;
+}
+
+.empty_completed_tasks  {
+    display: none;
 }
