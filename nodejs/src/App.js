@@ -1,6 +1,8 @@
 import React, {useState, useEffect, useRef} from 'react';
 import TodoList from './components/TodoList/TodoList';
 import styles from './App.module.css';
+import uuidv4 from 'uuid/v4';
+
 
 function App() {
 
@@ -13,9 +15,17 @@ function App() {
 
     if(name === '') return 
     setTasks((prev) => {
-      return [...prev, {id: 1, name: name, completed: false}];
+      return [...prev, {id: uuidv4(), name: name, completed: false}];
     });
     taskNameRef.current.value = null;
+  }
+
+  function removeTask(id) {
+    const newTasks = tasks.filter( (task) => task.id !== id);
+
+    setTasks( () => {
+      return newTasks;
+    });
   }
 
   function handleClearTasks() {
@@ -28,7 +38,7 @@ function App() {
     setTasksLength(() => {
       return tasks.length;
     });
-  });
+  }, [tasks.length]);
 
   return (
     <div className={styles.app}>
@@ -39,9 +49,8 @@ function App() {
             <input ref={taskNameRef} type='text' placeholder='Add new task' />
             <button onClick={handleAddTask} type='submit'>+</button>
           </div>
-
           <div className={tasks.length > 0 ? styles.todos_list: styles.empty_todos_list}>
-            <TodoList className={styles.todo_item} tasks={tasks}/>
+            <TodoList className={styles.todo_item} tasks={tasks} removeTask={removeTask}/>
           </div>
         </div>
 

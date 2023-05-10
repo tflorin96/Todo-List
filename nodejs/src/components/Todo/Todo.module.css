@@ -1,0 +1,30 @@
+.todo_container {
+    position: relative;
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+.task_name {
+    margin: 10px 0 10px 10px;
+    width: 80%;
+    padding: 0;
+    /* border: 1px red solid; */
+    font-size: 19px;
+}
+
+.bin_icon {
+    width: 45px;
+    height: 30px;
+    padding: 0 10px;
+    background-color: white;
+}
+
+.bin_icon:hover {
+    cursor: pointer;
+    width: 50px;
+    height: 40px;
+    padding: 0 10px;
+}
