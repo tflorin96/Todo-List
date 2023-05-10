@@ -5,7 +5,7 @@
 .app {
     position: relative;
     width: 25%;
-    margin: 15% auto;
+    margin: 10% auto;
     padding: 1% 1%;
     background-color: white;
     border-radius: 4px;
@@ -25,6 +25,7 @@
 input {
     width: 90%;
     padding: 10px 10px 0;
+    font-size: 16px;
 }
 
 input:hover {
@@ -62,7 +63,7 @@ button:hover {
     flex-direction: column;
     width: 100%;
     margin: 20px 0;
-    border: 2px blue solid;
+    /* border: 2px blue solid; */
 }
 
 .empty_todos_list {
