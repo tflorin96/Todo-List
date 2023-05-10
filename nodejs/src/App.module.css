@@ -1,0 +1,84 @@
+.app {
+    position: relative;
+    width: 30%;
+    margin: 15% auto;
+    padding: 1% 1%;
+    background-color: white;
+    border-radius: 4px;
+    border: 1px green solid
+}
+
+.app_header {
+    margin: 0 0 20px 0;
+    padding: 0;
+}
+
+.app_body {
+    
+}
+
+input {
+    width: 90%;
+    padding: 10px 0;
+}
+
+input:hover {
+    cursor: pointer;
+}
+
+button {
+    background-color: rgb(140, 95, 182);
+    border-radius: 4px;
+    color: white;
+    padding: 0 10px;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+.add_tasks_container {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin: 10px 0;
+}
+
+.add_tasks_container button {
+    font-size: 40px;
+    font-weight: bold;
+    
+}
+
+.todos_list {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    margin: 10px 0;
+    border: 2px blue solid;
+}
+
+.empty_todos_list {
+    display: none;
+}
+
+.app_footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+} 
+
+.app_footer p {
+    margin: 0;
+    padding: 10px 0;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.app_footer button {
+    font-weight: bold;
+    padding: 10px;
+}
