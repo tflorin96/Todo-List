@@ -45,6 +45,10 @@ function App() {
     setTasks(() => {
       return [];
     });
+
+    setCompletedTasks(() => {
+      return 0;
+    });
   }
 
   function handleCheckComplete(id) {
@@ -53,17 +57,22 @@ function App() {
     newTasks[taskIndex].completed = !newTasks[taskIndex].completed;
 
     if(newTasks[taskIndex].completed == true) {
-      setCompletedTasks(() => {
-        return completedTasks + 1;
-      });
+      setCompletedTasks(() => completedTasks + 1);
     } else {
-      setCompletedTasks(() => {
-        return completedTasks - 1;
-      });
+      setCompletedTasks(() => completedTasks - 1);
     }
+    
     setTasks(() => {
       return newTasks;
     });
+  }
+
+  function handleClearCompletedTasks() {
+    const newTasks = [...tasks];
+
+    const filteredTasks = newTasks.filter((task) => task.completed !== true);
+    setTasks(() => filteredTasks);
+    setCompletedTasks(() => 0);
   }
 
   useEffect(() => {
@@ -79,18 +88,21 @@ function App() {
         <div className={styles.app_body}>
           <div className={styles.add_tasks_container}>
             <input ref={taskNameRef} type='text' placeholder='Add new task' />
-            <button onClick={handleAddTask} type='submit'>+</button>
+            <button className={styles.add_task_button} onClick={handleAddTask} type='submit'>+</button>
           </div>
-          <div className={tasks.length > 0 ? styles.todos_list: styles.empty_todos_list}>
+          <div className={tasks.length > 0 ? styles.todos_list: styles.hidden_todos_list}>
             <TodoList className={styles.todo_item} tasks={tasks} removeTask={removeTask} checkCompleted={handleCheckComplete}/>
           </div>
         </div>
 
-        <div className={styles.app_footer}>
+        <div className={styles.app_footer_all_tasks}>
           <p>{tasksLength > 0 ? `You have ${tasksLength} pendings tasks` : 'No pending tasks'}</p>
-          <button onClick={handleClearAllTasks}>Clear All</button>
+          <button className={styles.clear_all_tasks_button} onClick={handleClearAllTasks}>Clear All</button>
         </div>
-        <p className={completedTasks == 0 ? styles.empty_completed_tasks :  styles.completed_task}> Completed: {completedTasks}</p>
+        <div className={styles.app_footer_completed_tasks}>
+          <p className={completedTasks == 0 ? styles.hidden_completed_tasks_counter :  styles.completed_tasks_counter}> Completed: {completedTasks}</p>
+          <button className={completedTasks == 0 ? styles.hidden_clear_completed_tasks_button :  styles.clear_completed_tasks_button} onClick={handleClearCompletedTasks}>Clear Completed</button>
+        </div>
     </div>
   );
 }

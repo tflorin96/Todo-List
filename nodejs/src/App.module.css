@@ -51,10 +51,9 @@ button:hover {
     margin: 10px 0;
 }
 
-.add_tasks_container button {
+.add_task_button {
     font-size: 40px;
     font-weight: bold;
-    
 }
 
 .todos_list {
@@ -63,14 +62,13 @@ button:hover {
     flex-direction: column;
     width: 100%;
     margin: 20px 0;
-    /* border: 2px blue solid; */
 }
 
-.empty_todos_list {
+.hidden_todos_list {
     display: none;
 }
 
-.app_footer {
+.app_footer_all_tasks {
     position: relative;
     display: flex;
     align-items: center;
@@ -78,23 +76,42 @@ button:hover {
     margin-top: 20px;
 } 
 
-.app_footer p {
+.app_footer_all_tasks p {
     margin: 0;
     padding: 10px 0;
     font-size: 20px;
 }
 
-.app_footer button {
+.clear_all_tasks_button {
+    font-size: 16px;
     font-weight: bold;
     padding: 10px;
 }
 
-.completed_tasks {
+.completed_tasks_counter {
     margin: 0;
     padding: 10px 0;
     font-size: 20px;
 }
 
-.empty_completed_tasks  {
+.hidden_completed_tasks_counter  {
+    display: none;
+}
+
+.app_footer_completed_tasks {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.clear_completed_tasks_button {
+    font-size: 16px;
+    font-weight: bold;
+    padding: 10px;
+}
+
+.hidden_clear_completed_tasks_button {
     display: none;
 }
