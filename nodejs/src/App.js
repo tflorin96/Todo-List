@@ -99,9 +99,9 @@ function App() {
           <p>{tasksLength > 0 ? `You have ${tasksLength} pendings tasks` : 'No pending tasks'}</p>
           <button className={styles.clear_all_tasks_button} onClick={handleClearAllTasks}>Clear All</button>
         </div>
-        <div className={styles.app_footer_completed_tasks}>
-          <p className={completedTasks == 0 ? styles.hidden_completed_tasks_counter :  styles.completed_tasks_counter}> Completed: {completedTasks}</p>
-          <button className={completedTasks == 0 ? styles.hidden_clear_completed_tasks_button :  styles.clear_completed_tasks_button} onClick={handleClearCompletedTasks}>Clear Completed</button>
+        <div className={ completedTasks > 0 ? styles.app_footer_completed_tasks : styles.hidden_app_footer_completed_tasks}>
+          <p className={styles.completed_tasks_counter}> Completed: {completedTasks}</p>
+          <button className={styles.clear_completed_tasks_button} onClick={handleClearCompletedTasks}>Clear Completed</button>
         </div>
     </div>
   );

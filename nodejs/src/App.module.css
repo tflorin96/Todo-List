@@ -94,10 +94,6 @@ button:hover {
     font-size: 20px;
 }
 
-.hidden_completed_tasks_counter  {
-    display: none;
-}
-
 .app_footer_completed_tasks {
     position: relative;
     display: flex;
@@ -106,12 +102,12 @@ button:hover {
     margin-top: 20px;
 }
 
+.hidden_app_footer_completed_tasks {
+    display: none;
+}
+
 .clear_completed_tasks_button {
     font-size: 16px;
     font-weight: bold;
     padding: 10px;
-}
-
-.hidden_clear_completed_tasks_button {
-    display: none;
 }
