@@ -32,6 +32,30 @@ input:hover {
     cursor: pointer;
 }
 
+
+.priorities_container {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    margin: 0;
+    border: 1px solid black;
+}
+
+label {
+    position: absolute;
+    bottom: 110%;
+    margin: 0 auto;
+    font-size: 17px;
+    font-weight: bold;
+}
+
+.task_priorities {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-size: 15px;
+}
+
 button {
     background-color: rgb(140, 95, 182);
     border-radius: 4px;
@@ -41,6 +65,8 @@ button {
 
 button:hover {
     cursor: pointer;
+    background-color: aqua;
+    color: black;
 }
 
 .add_tasks_container {
@@ -82,7 +108,16 @@ button:hover {
     font-size: 20px;
 }
 
-.clear_all_tasks_button {
+#clear_all_tasks_button {
+    font-size: 16px;
+    font-weight: bold;
+    padding: 10px;
+}
+
+#disabled_clear_all_tasks_button {
+    background-color: lightgray;
+    color: white;
+    cursor: auto;
     font-size: 16px;
     font-weight: bold;
     padding: 10px;

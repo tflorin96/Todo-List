@@ -12,9 +12,10 @@ function Todo({task, removeTask, checkCompleted}) {
   }
 
   return (
-    <div className={styles.todo_container}>
+    <div className={styles.todo_container_green}>
       <input className={styles.mark_complete} type='checkbox' onClick={handleCheckComplete}/>
       <p className={styles.task_name}>{task.name}</p>
+      <p className={styles.task_priority}>{task.priority}</p>
       <img className={styles.bin_icon} src="./binIcon.png" alt='Bin icon' onClick={handleRemoveTask}/>
     </div>
   )

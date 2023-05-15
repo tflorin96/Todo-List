@@ -10,16 +10,18 @@ function App() {
   const [tasksLength, setTasksLength] = useState(tasks.length);
   const [completedTasks, setCompletedTasks] = useState(0);
   const taskNameRef = useRef();
-
+  const taskPriorityRef = useRef();
 
   function handleAddTask() {
     const name = taskNameRef.current.value;
+    const priority= taskPriorityRef.current.value;
 
-    if(name === '') return 
+    if(name === '' || priority === '') return 
     setTasks((prev) => {
-      return [...prev, {id: uuidv4(), name: name, completed: false}];
+      return [...prev, {id: uuidv4(), name: name, priority: priority, completed: false}];
     });
     taskNameRef.current.value = null;
+    taskPriorityRef.current.value = null;
   }
 
   function removeTask(id) {
@@ -80,6 +82,7 @@ function App() {
       return tasks.length;
     });
   }, [tasks.length]);
+  
 
   return (
     <div className={styles.app}>
@@ -88,6 +91,14 @@ function App() {
         <div className={styles.app_body}>
           <div className={styles.add_tasks_container}>
             <input ref={taskNameRef} type='text' placeholder='Add new task' />
+            <div className={styles.priorities_container}>
+              <label>Priority</label>
+              <select ref={taskPriorityRef} name="task_priorities" className={styles.task_priorities}> 
+                  <option value="Low">Low</option>
+                  <option value="Med">Med</option>
+                  <option value="High">High</option>
+              </select>
+            </div>
             <button className={styles.add_task_button} onClick={handleAddTask} type='submit'>+</button>
           </div>
           <div className={tasks.length > 0 ? styles.todos_list: styles.hidden_todos_list}>
@@ -97,8 +108,8 @@ function App() {
 
         <div className={styles.app_footer_all_tasks}>
           <p>{tasksLength > 0 ? `You have ${tasksLength} pendings tasks` : 'No pending tasks'}</p>
-          <button className={styles.clear_all_tasks_button} onClick={handleClearAllTasks}>Clear All</button>
-        </div>
+          <button id={tasks.length == 0 ? styles.disabled_clear_all_tasks_button : styles.clear_all_tasks_button} onClick={handleClearAllTasks} disabled={tasks.length == 0 ? true : false}>Clear All</button>
+        </div> 
         <div className={ completedTasks > 0 ? styles.app_footer_completed_tasks : styles.hidden_app_footer_completed_tasks}>
           <p className={styles.completed_tasks_counter}> Completed: {completedTasks}</p>
           <button className={styles.clear_completed_tasks_button} onClick={handleClearCompletedTasks}>Clear Completed</button>
