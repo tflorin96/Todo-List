@@ -1,11 +1,54 @@
-.todo_container {
+.large_container {
+    position: relative;
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    margin: 5px 0 0 0;
+}
+
+.todo_container_green {
     position: relative;
     display:flex;
+    width: 100%;
     justify-content: space-between;
     align-items: center;
-    margin: 5px 0 0 0;
     padding: 0;
-    background-color: lightgrey;
+    background-color: lightgreen;
+    z-index: 10;
+}
+
+.todo_container_yellow {
+    position: relative;
+    display:flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0;
+    background-color: gold;
+    z-index: 10;
+}
+
+.todo_container_red {
+    position: relative;
+    display:flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0;
+    background-color: lightcoral;
+    z-index: 10;
+}
+
+.todo_container_white {
+    position: relative;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0;
+    background-color: white;
+    border: 1px black solid;
     z-index: 10;
 }
 
@@ -17,17 +60,31 @@
 }
 
 .task_name {
-    width: 85%;
+    max-width: 80%;
+    width: 79%;
     margin: 10px 0 10px 10px;
     padding: 0 0 0 7%;
     font-size: 19px;
     word-wrap: break-word;
 }
 
+.task_priority {
+    margin: 0 auto;
+    min-width: 40px;
+    height: inherit;
+    padding: 0 5px;
+    font-size: 15px;
+    font-weight: bold;
+    text-align: center;
+    text-transform: capitalize;
+}
+
 .bin_icon {
-    width: 45px;
-    height: 30px;
-    padding: 0 10px;
+    position: relative;
+    width: 50px;
+    height: 40px;
+    margin: auto;
+    padding: 5px 10px;
     /* background-color: lightgrey; */
 }
 
@@ -35,5 +92,12 @@
     cursor: pointer;
     width: 50px;
     height: 40px;
-    padding: 0 10px;
+    padding: 0 5px;
+}
+
+.edit_icon {
+    position: relative;
+    width: 35px;
+    height: 35px;
+    padding: 5px;
 }
