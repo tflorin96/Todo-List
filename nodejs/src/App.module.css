@@ -21,7 +21,7 @@
 
 input {
     width: 90%;
-    padding: 10px 10px 0;
+    padding: 10px 10px;
     font-size: 16px;
 }
 
@@ -135,7 +135,7 @@ button:hover {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-top: 20px;
+    margin-top: 10px;
 }
 
 .hidden_app_footer_completed_tasks {
@@ -148,14 +148,86 @@ button:hover {
     padding: 10px;
 }
 
-@media (orientation: landscape) and (max-width: 767px){
+@media (max-width: 599px) {
     .app {
-        width: 500px;
+        width: 90%;
+    }
+    .app_header {
+        font-size: 20px;
+    }
+    .add_tasks_container {
+        height: 35px;
+    }
+    .add_task_button {
+        font-size: 30px;
+    }
+    .priority_label {
+        font-size: 15px;
+    }
+    .app_footer_all_tasks p, .completed_tasks_counter {
+        font-size: 18px;
+    }
+    #clear_all_tasks_button, .clear_completed_tasks_button {
+        padding: 5px;
     }
 }
 
-@media (max-width: 339px) {
+@media (min-width: 600px) and (max-width: 767px) {
     .app {
-        width: 300px;
+        width: 80%;
+    }
+    .app_header {
+        font-size: 20px;
+    }
+    .add_tasks_container {
+        height: 35px;
+    }
+    .add_task_button {
+        font-size: 30px;
+    }
+    .priority_label {
+        font-size: 15px;
+    }
+    .app_footer_all_tasks p, .completed_tasks_counter {
+        font-size: 18px;
+    }
+    #clear_all_tasks_button, .clear_completed_tasks_button {
+        padding: 5px;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1365px) {
+    .app {
+        width: 60%;
+    }
+}
+
+@media (min-width: 1366px) and (max-width: 1920px) {
+    .app {
+        width: 50%;
+    }
+}
+
+@media (orientation: landscape) and (max-width: 767px){
+    .app {
+        width: 80%;
+    }
+    .app_header {
+        font-size: 20px;
+    }
+    .add_tasks_container {
+        height: 35px;
+    }
+    .add_task_button {
+        font-size: 30px;
+    }
+    .priority_label {
+        font-size: 15px;
+    }
+    .app_footer_all_tasks p, .completed_tasks_counter {
+        font-size: 18px;
+    }
+    #clear_all_tasks_button, .clear_completed_tasks_button {
+        padding: 5px;
     }
 }
