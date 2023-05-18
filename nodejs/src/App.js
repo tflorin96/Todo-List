@@ -91,6 +91,30 @@ function App() {
     }
   }
 
+  function moveTodoUp(id) {
+    const newTasks = [...tasks];
+    const index = tasks.findIndex(task => task.id == id);
+    if(index > 0) {
+        const temp = newTasks[index -1];
+        newTasks[index -1] = newTasks[index];
+        newTasks[index] = temp;
+    }
+
+    setTasks(() => newTasks);
+  }
+
+  function moveTodoDown(id) {
+    const newTasks = [...tasks];
+    const index = tasks.findIndex(task => task.id == id);
+    if(index < newTasks.length -1) {
+        const temp = newTasks[index +1];
+        newTasks[index +1] = newTasks[index];
+        newTasks[index] = temp;
+    }
+
+    setTasks(() => newTasks);
+}
+
   useEffect(() => {
     setTasksLength(() => {
       return tasks.length;
@@ -118,7 +142,7 @@ function App() {
           </div>
 
           <div className={tasks.length > 0 ? styles.todos_list: styles.hidden_todos_list}>
-            <TodoList className={styles.todo_item} tasks={tasks} removeTask={removeTask} checkCompleted={handleCheckComplete}/>
+            <TodoList className={styles.todo_item} tasks={tasks} removeTask={removeTask} checkCompleted={handleCheckComplete} moveTodoUp={moveTodoUp} moveTodoDown={moveTodoDown}/>
           </div>
         </div>
 

@@ -2,10 +2,10 @@ import React from 'react';
 import Todo from '../Todo/Todo';
 // import styles from './popup.module.css';
 
-function TodoList({tasks, removeTask, checkCompleted}) {
+function TodoList({tasks, removeTask, checkCompleted, moveTodoUp, moveTodoDown}) {
     return (
         tasks.map(task => {
-            return <Todo key={task.id} task={task} removeTask={removeTask} checkCompleted={checkCompleted}/>
+            return <Todo key={task.id} task={task} removeTask={removeTask} checkCompleted={checkCompleted} moveTodoUp={moveTodoUp} moveTodoDown={moveTodoDown}/>
         })
     );
 }

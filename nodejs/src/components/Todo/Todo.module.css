@@ -2,9 +2,30 @@
     position: relative;
     display: flex;
     width: 100%;
-    /* align-items: center; */
     justify-content: space-between;
     margin: 5px 0 0 0;
+}
+
+.arrows_container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0;
+    padding: 0 ;
+}
+
+.up_arrow, .down_arrow {
+    position: relative;
+    width: 16px;
+    height: 24px;
+    margin: 0;
+    padding: 4px;
+}
+
+.up_arrow:hover, .down_arrow:hover {
+    cursor: pointer;
+    background-color: aqua;
 }
 
 .todo_container_green {
@@ -40,7 +61,7 @@
     z-index: 10;
 }
 
-.todo_container_white {
+.todo_container_grey {
     position: relative;
     display: flex;
     width: 100%;
@@ -48,7 +69,6 @@
     align-items: center;
     padding: 5px 0;
     background-color: lightgrey;
-    /* border: 1px black solid; */
     z-index: 10;
 }
 
@@ -103,6 +123,9 @@
 
 
 @media (max-width: 599px) {
+    .up_arrow, .down_arrow {
+        height: 23px;
+    }
     .task_name {
         margin: 0 0 0 10px;
         padding: 5px 0 5px 15px;
