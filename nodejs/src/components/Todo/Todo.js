@@ -19,9 +19,9 @@ function Todo({task, removeTask, checkCompleted}) {
             <input className={styles.mark_complete} type='checkbox' onClick={handleCheckComplete}/>
             <p className={styles.task_name}>{task.name}</p>
             <p className={styles.task_priority}>{task.priority}</p>
-            <img className={styles.bin_icon} src="./binIcon.png" alt='Bin icon' onClick={handleRemoveTask}/>
+            <img className={styles.bin_icon} src="./images/binIcon.png" alt='Bin icon' onClick={handleRemoveTask}/>
           </div>
-          <img className={styles.edit_icon} src='./edit-icon.png'></img>
+          <img className={styles.edit_icon} src='./images/edit-icon.png'></img>
         </div>
       )
     } else if (task.priority.toLowerCase() == "med") {
@@ -32,9 +32,9 @@ function Todo({task, removeTask, checkCompleted}) {
             <input className={styles.mark_complete} type='checkbox' onClick={handleCheckComplete}/>
             <p className={styles.task_name}>{task.name}</p>
             <p className={styles.task_priority}>{task.priority}</p>
-            <img className={styles.bin_icon} src="./binIcon.png" alt='Bin icon' onClick={handleRemoveTask}/>
+            <img className={styles.bin_icon} src="./images/binIcon.png" alt='Bin icon' onClick={handleRemoveTask}/>
           </div>
-          <img className={styles.edit_icon} src='./edit-icon.png'></img>
+          <img className={styles.edit_icon} src='./images/edit-icon.png'></img>
         </div>
       )
     } else if (task.priority.toLowerCase() == "high") {
@@ -45,9 +45,9 @@ function Todo({task, removeTask, checkCompleted}) {
             <input className={styles.mark_complete} type='checkbox' onClick={handleCheckComplete}/>
             <p className={styles.task_name}>{task.name}</p>
             <p className={styles.task_priority}>{task.priority}</p>
-            <img className={styles.bin_icon} src="./binIcon.png" alt='Bin icon' onClick={handleRemoveTask}/>
+            <img className={styles.bin_icon} src="./images/binIcon.png" alt='Bin icon' onClick={handleRemoveTask}/>
           </div>
-          <img className={styles.edit_icon} src='./edit-icon.png'></img>
+          <img className={styles.edit_icon} src='./images/edit-icon.png'></img>
         </div>
       )
     } else {
@@ -57,9 +57,9 @@ function Todo({task, removeTask, checkCompleted}) {
             <input className={styles.mark_complete} type='checkbox' onClick={handleCheckComplete}/>
             <p className={styles.task_name}>{task.name}</p>
             <p className={styles.task_priority}>{task.priority}</p>
-            <img className={styles.bin_icon} src="./binIcon.png" alt='Bin icon' onClick={handleRemoveTask}/>
+            <img className={styles.bin_icon} src="./images/binIcon.png" alt='Bin icon' onClick={handleRemoveTask}/>
           </div>
-          <img className={styles.edit_icon} src='./edit-icon.png'></img>
+          <img className={styles.edit_icon} src='./images/edit-icon.png'></img>
         </div>
       )
     }

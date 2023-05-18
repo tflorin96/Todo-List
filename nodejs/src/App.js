@@ -22,7 +22,7 @@ function App() {
         ...prev, 
         {id: uuidv4(),
           name: name != '' ? name : 'Task name not provided',
-          priority: priority != '' ? priority : 'NA',
+          priority: priority != '' ? priority : ' ',
           completed: false}
       ];
     });
