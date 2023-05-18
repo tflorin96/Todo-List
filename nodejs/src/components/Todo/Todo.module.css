@@ -2,7 +2,7 @@
     position: relative;
     display: flex;
     width: 100%;
-    align-items: center;
+    /* align-items: center; */
     justify-content: space-between;
     margin: 5px 0 0 0;
 }
@@ -47,8 +47,8 @@
     justify-content: space-between;
     align-items: center;
     padding: 5px 0;
-    background-color: white;
-    border: 1px black solid;
+    background-color: lightgrey;
+    /* border: 1px black solid; */
     z-index: 10;
 }
 
@@ -97,9 +97,8 @@
 
 .edit_icon {
     position: relative;
-    width: 35px;
-    height: 35px;
-    padding: 5px;
+    width: 30px;
+    padding: 13px 7px;
 }
 
 
@@ -112,11 +111,16 @@
     .task_priority {
         min-width: 36px;
     }
-    .bin_icon, .edit_icon {
+    .bin_icon {
         width: 45px;
         height: 35px;
         margin: auto;
         padding: 5px 5px;
+    }
+    .edit_icon {
+        position: relative;
+        width: 30px;
+        padding: 18px 7px;
     }
     .bin_icon:hover {
         width: 45px;
@@ -135,11 +139,16 @@
     .task_priority {
         min-width: 36px;
     }
-    .bin_icon, .edit_icon {
+    .bin_icon {
         width: 45px;
         height: 35px;
         margin: auto;
         padding: 5px 5px;
+    }
+    .edit_icon {
+        position: relative;
+        width: 30px;
+        padding: 13px 7px;
     }
     .bin_icon:hover {
         width: 45px;
@@ -158,11 +167,16 @@
     .task_priority {
         min-width: 36px;
     }
-    .bin_icon, .edit_icon {
+    .bin_icon {
         width: 45px;
         height: 35px;
         margin: auto;
         padding: 5px 5px;
+    }
+    .edit_icon {
+        position: relative;
+        width: 30px;
+        padding: 13px 7px;
     }
     .bin_icon:hover {
         width: 45px;
