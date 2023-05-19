@@ -2,68 +2,53 @@
     position: relative;
     display: flex;
     width: 100%;
-    /* align-items: center; */
     justify-content: space-between;
     margin: 5px 0 0 0;
 }
 
-.todo_container_green {
-    position: relative;
-    display:flex;
-    width: 100%;
-    justify-content: space-between;
-    align-items: center;
-    padding: 5px 0;
-    background-color: lightgreen;
-    z-index: 10;
-}
-
-.todo_container_yellow {
-    position: relative;
-    display:flex;
-    width: 100%;
-    justify-content: space-between;
-    align-items: center;
-    padding: 5px 0;
-    background-color: gold;
-    z-index: 10;
-}
-
-.todo_container_red {
-    position: relative;
-    display:flex;
-    width: 100%;
-    justify-content: space-between;
-    align-items: center;
-    padding: 5px 0;
-    background-color: lightcoral;
-    z-index: 10;
-}
-
-.todo_container_white {
+.arrows_container {
     position: relative;
     display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+}
+
+.up_arrow, .down_arrow {
+    position: relative;
+    width: 16px;
+    height: 24px;
+    margin: 0;
+    padding: 4px;
+}
+
+.up_arrow:hover, .down_arrow:hover {
+    cursor: pointer;
+    background-color: aqua;
+}
+
+.todo_container {
+    position: relative;
+    display:flex;
     width: 100%;
     justify-content: space-between;
     align-items: center;
     padding: 5px 0;
-    background-color: lightgrey;
-    /* border: 1px black solid; */
     z-index: 10;
 }
 
-.mark_complete {
+.check_completed {
     position: absolute;
-    width: 5%;
-    height: 12px;
+    width: 20px;
+    height: 13px;
     left: 0;
 }
 
 .task_name {
-    max-width: 80%;
-    width: 79%;
-    margin: 10px 0 10px 10px;
-    padding: 0 0 0 30px;
+    width: 85%;
+    margin: 10px 0;
+    padding: 0 0 0 35px;
     font-size: 19px;
     word-wrap: break-word;
 }
@@ -83,7 +68,7 @@
     position: relative;
     width: 50px;
     height: 40px;
-    margin: auto;
+    /* margin: auto; */
     padding: 5px 10px;
     /* background-color: lightgrey; */
 }
@@ -103,6 +88,12 @@
 
 
 @media (max-width: 599px) {
+    .up_arrow, .down_arrow {
+        height: 23px;
+    }
+    .check_completed {
+        height: 12px;
+    }
     .task_name {
         margin: 0 0 0 10px;
         padding: 5px 0 5px 15px;
@@ -110,6 +101,7 @@
     }
     .task_priority {
         min-width: 36px;
+        font-size: 13px;
     }
     .bin_icon {
         width: 45px;
@@ -136,8 +128,12 @@
         padding: 5px 0 5px 20px;
         font-size: 16px;
     }
+    .check_completed {
+        height: 12px;
+    }
     .task_priority {
         min-width: 36px;
+        font-size: 13px;;
     }
     .bin_icon {
         width: 45px;
