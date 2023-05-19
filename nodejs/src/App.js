@@ -3,6 +3,7 @@ import TodoList from './components/TodoList/TodoList';
 import styles from './App.module.css';
 import uuidv4 from 'uuid/v4';
 
+const LOCAL_STORAGE_KEY = 'MyTodos';
 
 function App() {
 
@@ -21,9 +22,9 @@ function App() {
       return [
         ...prev, 
         {id: uuidv4(),
-          name: name != '' ? name : 'Task name not provided',
-          priority: priority != '' ? priority : ' ',
-          completed: false}
+        name: name != '' ? name : 'Task name not provided',
+        priority: priority != '' ? priority : ' ',
+        completed: false}
       ];
     });
     taskNameRef.current.value = null;
@@ -63,6 +64,8 @@ function App() {
     const newTasks = [...tasks];
     const taskIndex = newTasks.findIndex((task) => task.id === id);
     newTasks[taskIndex].completed = !newTasks[taskIndex].completed;
+    document.getElementById('check_completed').setAttribute('checked', !newTasks[taskIndex].completed);
+    
 
     if(newTasks[taskIndex].completed == true) {
       setCompletedTasks(() => completedTasks + 1);
@@ -84,14 +87,14 @@ function App() {
   }
 
   function handleTogglePriorityLabel(event) {
-    if(event.target.tagName.toLowerCase() === 'input' || event.target.tagName.toLowerCase() === 'select') {
+    if(event.target.id === 'add_task_input' || event.target.id === 'select_priority') {
       setShowPriorityLabel(() => true);
     } else {
       setShowPriorityLabel(() => false);
     }
   }
 
-  function moveTodoUp(id) {
+  function moveTaskUp(id) {
     const newTasks = [...tasks];
     const index = tasks.findIndex(task => task.id == id);
     if(index > 0) {
@@ -103,7 +106,7 @@ function App() {
     setTasks(() => newTasks);
   }
 
-  function moveTodoDown(id) {
+  function moveTaskDown(id) {
     const newTasks = [...tasks];
     const index = tasks.findIndex(task => task.id == id);
     if(index < newTasks.length -1) {
@@ -120,6 +123,16 @@ function App() {
       return tasks.length;
     });
   }, [tasks.length]);
+
+  useEffect(() => {
+    const storedObj = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY));
+    if(storedObj.tasks) setTasks((prevTasks) => [...prevTasks, ...storedObj.tasks]);
+    if(storedObj.completedTasks) setCompletedTasks(() => storedObj.completedTasks);
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify({tasks: [...tasks], completedTasks: completedTasks}));
+  }, [tasks, completedTasks]);
   
 
   return (
@@ -128,10 +141,10 @@ function App() {
         <div className={styles.app_body}>
 
           <div className={styles.add_tasks_container}>
-            <input ref={taskNameRef} type='text' placeholder='Add new task'/>
+            <input ref={taskNameRef} id='add_task_input' type='text' placeholder='Add new task'/>
             <div className={styles.priorities_container}>
               <label className={showPriorityLabel == true ? styles.priority_label : styles.hidden_priority_label}>Priority</label>
-              <select ref={taskPriorityRef} name="task_priorities" className={styles.task_priorities}>
+              <select ref={taskPriorityRef} id='select_priority' name="select_priority" className={styles.select_priority}>
                   <option value='' style={{display:'none'}} selected></option> 
                   <option value="low">Low</option>
                   <option value="med">Med</option>
@@ -142,7 +155,7 @@ function App() {
           </div>
 
           <div className={tasks.length > 0 ? styles.todos_list: styles.hidden_todos_list}>
-            <TodoList className={styles.todo_item} tasks={tasks} removeTask={removeTask} checkCompleted={handleCheckComplete} moveTodoUp={moveTodoUp} moveTodoDown={moveTodoDown}/>
+            <TodoList className={styles.todo_item} tasks={tasks} removeTask={removeTask} check_completed={handleCheckComplete} moveTaskUp={moveTaskUp} moveTaskDown={moveTaskDown}/>
           </div>
         </div>
 

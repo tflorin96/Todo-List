@@ -40,7 +40,6 @@ input:hover {
 .priority_label {
     position: absolute;
     bottom: 110%;
-    right: 0.5%;
     margin: 0 auto;
     font-size: 17px;
     font-weight: bold;
@@ -50,7 +49,7 @@ input:hover {
     display: none;
 }
 
-.task_priorities {
+.select_priority {
     margin: 0;
     padding: 0;
     height: 100%;
@@ -165,10 +164,13 @@ button:hover {
         font-size: 15px;
     }
     .app_footer_all_tasks p, .completed_tasks_counter {
-        font-size: 18px;
+        padding: 5px 0;
+        font-size: 16px;
+        font-weight: bold;
     }
     #clear_all_tasks_button, .clear_completed_tasks_button {
         padding: 5px;
+        font-size: 15px;
     }
 }
 
@@ -189,6 +191,7 @@ button:hover {
         font-size: 15px;
     }
     .app_footer_all_tasks p, .completed_tasks_counter {
+        padding: 5px 0;
         font-size: 18px;
     }
     #clear_all_tasks_button, .clear_completed_tasks_button {
@@ -225,6 +228,7 @@ button:hover {
         font-size: 15px;
     }
     .app_footer_all_tasks p, .completed_tasks_counter {
+        padding: 5px 0;
         font-size: 18px;
     }
     #clear_all_tasks_button, .clear_completed_tasks_button {
