@@ -1,5 +1,7 @@
 * {
     box-sizing: border-box;
+    min-width: 0;
+    min-height: 0;
 }
 
 .app {
@@ -14,12 +16,13 @@
     font-family: Arial, Helvetica, sans-serif;
 }
 
+
 .app_header {
     margin: 0 0 20px 0;
     padding: 10px 0;
 }
 
-input {
+.add_task_input {
     width: 90%;
     padding: 10px 10px;
     font-size: 16px;
@@ -54,6 +57,7 @@ input:hover {
     padding: 0;
     height: 100%;
     font-size: 15px;
+    border-radius: 4px;;
 }
 
 button {
@@ -94,7 +98,7 @@ button:hover {
     display: none;
 }
 
-.app_footer_all_tasks {
+.app_footer_all_tasks_container {
     position: relative;
     display: flex;
     align-items: center;
@@ -102,7 +106,7 @@ button:hover {
     margin-top: 20px;
 } 
 
-.app_footer_all_tasks p {
+.app_footer_all_tasks_container p {
     margin: 0;
     padding: 10px 0;
     font-size: 20px;
@@ -129,7 +133,7 @@ button:hover {
     font-size: 20px;
 }
 
-.app_footer_completed_tasks {
+.app_footer_completed_tasks_container {
     position: relative;
     display: flex;
     align-items: center;
@@ -137,7 +141,7 @@ button:hover {
     margin-top: 10px;
 }
 
-.hidden_app_footer_completed_tasks {
+.hidden_app_footer_completed_tasks_container {
     display: none;
 }
 
@@ -152,7 +156,13 @@ button:hover {
         width: 90%;
     }
     .app_header {
-        font-size: 20px;
+        font-size: 17px;
+    }
+    .add_task_input {
+        font-size: 14px;
+    }
+    .select_priority {
+        font-size: 12px;
     }
     .add_tasks_container {
         height: 35px;
@@ -161,16 +171,19 @@ button:hover {
         font-size: 30px;
     }
     .priority_label {
-        font-size: 15px;
+        font-size: 13px;
     }
-    .app_footer_all_tasks p, .completed_tasks_counter {
+    .app_footer_all_tasks_container p, .completed_tasks_counter {
         padding: 5px 0;
-        font-size: 16px;
+        font-size: 14px;
         font-weight: bold;
     }
     #clear_all_tasks_button, .clear_completed_tasks_button {
         padding: 5px;
-        font-size: 15px;
+        font-size: 13px;
+    }
+    .app_footer_completed_tasks_container {
+        margin-top: 5px;
     }
 }
 
@@ -190,18 +203,26 @@ button:hover {
     .priority_label {
         font-size: 15px;
     }
-    .app_footer_all_tasks p, .completed_tasks_counter {
+    .app_footer_all_tasks_container p, .completed_tasks_counter {
         padding: 5px 0;
-        font-size: 18px;
+        font-size: 17px;
+        font-weight: bold;
     }
     #clear_all_tasks_button, .clear_completed_tasks_button {
         padding: 5px;
+        font-size: 15px;
+    }
+    .app_footer_completed_tasks_container {
+        margin-top: 5px;
     }
 }
 
 @media (min-width: 768px) and (max-width: 1365px) {
     .app {
         width: 60%;
+    }
+    .app_header {
+        font-size: 25px;
     }
 }
 
@@ -211,7 +232,7 @@ button:hover {
     }
 }
 
-@media (orientation: landscape) and (max-width: 767px){
+/* @media (orientation: landscape) and (max-width: 767px){
     .app {
         width: 80%;
     }
@@ -227,11 +248,11 @@ button:hover {
     .priority_label {
         font-size: 15px;
     }
-    .app_footer_all_tasks p, .completed_tasks_counter {
+    .app_footer_all_tasks_container p, .completed_tasks_counter {
         padding: 5px 0;
         font-size: 18px;
     }
     #clear_all_tasks_button, .clear_completed_tasks_button {
         padding: 5px;
     }
-}
+} */
