@@ -34,7 +34,7 @@
     width: 100%;
     justify-content: space-between;
     align-items: center;
-    padding: 5px 0;
+    padding: 0;
     z-index: 10;
 }
 
@@ -57,7 +57,7 @@
     margin: auto;
     min-width: 40px;
     height: inherit;
-    padding: 0 5px;
+    padding: 0 0 0 5px;
     font-size: 15px;
     font-weight: bold;
     text-align: center;
@@ -97,11 +97,11 @@
     .task_name {
         margin: 0 0 0 10px;
         padding: 5px 0 5px 15px;
-        font-size: 16px;
+        font-size: 14px;
     }
     .task_priority {
         min-width: 36px;
-        font-size: 13px;
+        font-size: 11px;
     }
     .bin_icon {
         width: 45px;
@@ -154,7 +154,7 @@
     }
 }
 
-@media (orientation: landscape) and (max-width: 767px) {
+/* @media (orientation: landscape) and (max-width: 767px) {
     .task_name {
         margin: 0 0 0 10px;
         padding: 5px 0 5px 20px;
@@ -180,4 +180,4 @@
         margin: auto;
         padding: 5px 5px;
     }
-}
+} */

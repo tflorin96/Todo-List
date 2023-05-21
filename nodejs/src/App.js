@@ -31,12 +31,10 @@ function App() {
     taskPriorityRef.current.value = null;
   }
 
-  function removeTask(id) {
+  function handleRemoveTask(id) {
 
     const newTasks = tasks.filter( (task) => task.id !== id);
-    setTasks( () => {
-      return newTasks;
-    });
+    setTasks( () => newTasks);
 
     let checkedCompletedTasks = 0;
     newTasks.forEach((task) => {
@@ -45,19 +43,13 @@ function App() {
       }
     });
 
-    setCompletedTasks(() => {
-      return checkedCompletedTasks;
-    });
+    setCompletedTasks(() => checkedCompletedTasks);
   }
 
   function handleClearAllTasks() {
-    setTasks(() => {
-      return [];
-    });
+    setTasks(() => []);
 
-    setCompletedTasks(() => {
-      return 0;
-    });
+    setCompletedTasks(() => 0);
   }
 
   function handleCheckComplete(id) {
@@ -73,9 +65,7 @@ function App() {
       setCompletedTasks(() => completedTasks - 1);
     }
     
-    setTasks(() => {
-      return newTasks;
-    });
+    setTasks(() => newTasks);
   }
 
   function handleClearCompletedTasks() {
@@ -119,9 +109,7 @@ function App() {
 }
 
   useEffect(() => {
-    setTasksLength(() => {
-      return tasks.length;
-    });
+    setTasksLength(() => tasks.length);
   }, [tasks.length]);
 
   useEffect(() => {
@@ -141,10 +129,10 @@ function App() {
         <div className={styles.app_body}>
 
           <div className={styles.add_tasks_container}>
-            <input ref={taskNameRef} id='add_task_input' type='text' placeholder='Add new task'/>
+            <input ref={taskNameRef} id='add_task_input' className={styles.add_task_input} type='text' placeholder='Add new task'/>
             <div className={styles.priorities_container}>
               <label className={showPriorityLabel == true ? styles.priority_label : styles.hidden_priority_label}>Priority</label>
-              <select ref={taskPriorityRef} id='select_priority' name="select_priority" className={styles.select_priority}>
+              <select ref={taskPriorityRef} id='select_priority' className={styles.select_priority} name="select_priority">
                   <option value='' style={{display:'none'}} selected></option> 
                   <option value="low">Low</option>
                   <option value="med">Med</option>
@@ -155,16 +143,16 @@ function App() {
           </div>
 
           <div className={tasks.length > 0 ? styles.todos_list: styles.hidden_todos_list}>
-            <TodoList className={styles.todo_item} tasks={tasks} removeTask={removeTask} check_completed={handleCheckComplete} moveTaskUp={moveTaskUp} moveTaskDown={moveTaskDown}/>
+            <TodoList className={styles.todo_item} tasks={tasks} removeTask={handleRemoveTask} check_completed={handleCheckComplete} moveTaskUp={moveTaskUp} moveTaskDown={moveTaskDown}/>
           </div>
         </div>
 
-        <div className={styles.app_footer_all_tasks}>
+        <div className={styles.app_footer_all_tasks_container}>
           <p>{tasksLength > 0 ? `You have ${tasksLength} pendings tasks` : 'No pending tasks'}</p>
           <button id={tasks.length == 0 ? styles.disabled_clear_all_tasks_button : styles.clear_all_tasks_button} onClick={handleClearAllTasks} disabled={tasks.length == 0 ? true : false}>Clear All</button>
         </div> 
         
-        <div className={ completedTasks > 0 ? styles.app_footer_completed_tasks : styles.hidden_app_footer_completed_tasks}>
+        <div className={ completedTasks > 0 ? styles.app_footer_completed_tasks_container : styles.hidden_app_footer_completed_tasks_container}>
           <p className={styles.completed_tasks_counter}> Completed: {completedTasks}</p>
           <button className={styles.clear_completed_tasks_button} onClick={handleClearCompletedTasks}>Clear Completed</button>
         </div>
