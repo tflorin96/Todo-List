@@ -1,0 +1,94 @@
+.footer_container {
+    position: relative;
+    width: 100%;
+    margin: 10px 0;
+}
+
+.app_footer_all_tasks_container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 20px;
+} 
+
+.app_footer_all_tasks_container p {
+    margin: 0;
+    padding: 10px 0;
+    font-size: 20px;
+}
+
+#clear_all_tasks_button {
+    font-size: 16px;
+    font-weight: bold;
+    padding: 10px;
+}
+
+#disabled_clear_all_tasks_button {
+    background-color: lightgray;
+    color: white;
+    cursor: auto;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 10px;
+}
+
+.completed_tasks_counter {
+    margin: 0;
+    padding: 10px 0;
+    font-size: 20px;
+}
+
+.app_footer_completed_tasks_container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.hidden_app_footer_completed_tasks_container {
+    display: none;
+}
+
+.clear_completed_tasks_button {
+    font-size: 16px;
+    font-weight: bold;
+    padding: 10px;
+}
+
+@media (max-width: 599px) {
+    .app_footer_all_tasks_container p, .completed_tasks_counter {
+        padding: 5px 0;
+        font-size: 14px;
+        font-weight: bold;
+    }
+    #clear_all_tasks_button, .clear_completed_tasks_button {
+        padding: 5px;
+        font-size: 13px;
+    }
+    .app_footer_completed_tasks_container {
+        margin-top: 5px;
+    }
+}
+
+@media (min-width: 600px) and (max-width: 767px) {
+    .app_footer_all_tasks_container p, .completed_tasks_counter {
+        padding: 5px 0;
+        font-size: 17px;
+        font-weight: bold;
+    }
+    #clear_all_tasks_button, .clear_completed_tasks_button {
+        padding: 5px;
+        font-size: 15px;
+    }
+    .app_footer_completed_tasks_container {
+        margin-top: 5px;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1365px) {
+}
+
+@media (min-width: 1366px) and (max-width: 1920px) {
+}
