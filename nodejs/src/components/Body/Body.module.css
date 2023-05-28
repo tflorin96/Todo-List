@@ -16,6 +16,7 @@
     width: 90%;
     padding: 10px 10px;
     font-size: 16px;
+    border: 1px solid black;
 }
 
 .add_task_input:hover {
@@ -48,12 +49,14 @@
     padding: 0;
     height: 100%;
     font-size: 15px;
-    border-radius: 4px;;
+    border-radius: 4px;
+    border: 1px solid black;
 }
 
 button {
     background-color: rgb(140 110 182);
     border-radius: 4px;
+    border: none;
     color: white;
     padding: 0 10px;
 }

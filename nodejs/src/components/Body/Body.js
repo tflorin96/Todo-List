@@ -25,7 +25,7 @@ export default function Body() {
         const newTask = {
             id: uuidv4(),
             name: name !== '' ? name : 'Task name not provided',
-            priority: priority !== '' ? priority : ' ',
+            priority: priority !== '' ? priority : 'none',
             completed: false,
         };
         setTasks((prev) => [...prev, newTask]);
@@ -91,6 +91,22 @@ export default function Body() {
         setTasks(() => newTasks);
     }
 
+    function saveNewTaskName(id, newName) {
+        const newTasks = [...tasks];
+        const index = newTasks.findIndex(task => task.id === id);
+        newTasks[index].name = newName;
+
+        setTasks(() => newTasks);
+    }
+
+    function saveTaskPriority(id, newPriority) {
+        const newTasks = [...tasks];
+        const index = newTasks.findIndex(task => task.id === id);
+        newTasks[index].priority = newPriority;
+
+        setTasks(() => newTasks);
+    }
+    
     useEffect(() => {
         try {
             const storedObj = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY));
@@ -121,8 +137,8 @@ export default function Body() {
             setTextColor(() => "lightblue");
         }
     }, [darkTheme]);
-
-
+    
+    
     return (
         <div className={styles.body_container} onClick={handleTogglePriorityLabel}>
             <div className={styles.add_tasks_container}>
@@ -140,7 +156,7 @@ export default function Body() {
             </div>
 
             <div className={tasks.length > 0 ? styles.todos_list : styles.hidden_todos_list}>
-                <TodoList className={styles.todo_item} tasks={tasks} removeTask={handleRemoveTask} check_completed={handleCheckComplete} moveTaskUp={moveTaskUp} moveTaskDown={moveTaskDown} />
+                <TodoList className={styles.todo_item} tasks={tasks} removeTask={handleRemoveTask} check_completed={handleCheckComplete} moveTaskUp={moveTaskUp} moveTaskDown={moveTaskDown} saveNewTaskName={saveNewTaskName} saveTaskPriority={saveTaskPriority}/>
             </div>
         </div>
     )
