@@ -1,14 +1,14 @@
 .body_container {
     position: relative;
     width: 100%;
-    margin: 10px 0;
+    margin: 30px 0 10px;
 }
 
 .add_tasks_container {
     position: relative;
     display: flex;
     width: 100%;
-    margin: 15px 0;
+    margin: 15px 0 10px;
     padding: 0;
 }
 
@@ -33,7 +33,7 @@
 
 .priority_label {
     position: absolute;
-    bottom: 110%;
+    bottom: 100%;
     margin: 0 auto;
     font-size: 17px;
     font-weight: bold;
@@ -52,7 +52,7 @@
 }
 
 button {
-    background-color: rgb(140, 95, 182);
+    background-color: rgb(140 110 182);
     border-radius: 4px;
     color: white;
     padding: 0 10px;
@@ -60,7 +60,7 @@ button {
 
 button:hover {
     cursor: pointer;
-    background-color: aqua;
+    background-color: lightblue;
     color: black;
 }
 
@@ -82,6 +82,9 @@ button:hover {
 }
 
 @media (max-width: 599px) {
+    .body_container {
+        margin: 25px 0 10px;
+    }
     .add_task_input {
         font-size: 14px;
     }

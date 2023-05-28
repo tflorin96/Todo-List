@@ -12,12 +12,15 @@ export default function TasksProviderContext({ children }) {
     const [tasksLength, setTasksLength] = useState(tasks.length);
     const [showPriorityLabel, setShowPriorityLabel] = useState(false);
     const [completedTasks, setCompletedTasks] = useState(0);
+    const [darkTheme, setDarkTheme] = useState(false); 
+
     const value = {
         taskContext: [tasks, setTasks],
         taskLengthContext: [tasksLength, setTasksLength],
         priorityLabelContext: [showPriorityLabel, setShowPriorityLabel],
         completedTasksContext: [completedTasks, setCompletedTasks],
         togglePriorityContext: handleTogglePriorityLabel,
+        theme: [darkTheme, setDarkTheme],
     };
 
     function handleTogglePriorityLabel(event) {

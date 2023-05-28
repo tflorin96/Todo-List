@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import styles from './Body.module.css';
 import TodoList from '../TodoList/TodoList';
 import uuidv4 from 'uuid/v4';
@@ -8,10 +8,13 @@ const LOCAL_STORAGE_KEY = 'MyTodos';
 
 export default function Body() {
 
-    const { taskContext, priorityLabelContext, completedTasksContext, togglePriorityContext } = useTasksContext();
+    const { taskContext, priorityLabelContext, completedTasksContext, togglePriorityContext, theme } = useTasksContext();
     const [tasks, setTasks] = taskContext;
     const [showPriorityLabel, setShowPriorityLabel] = priorityLabelContext;
     const [completedTasks, setCompletedTasks] = completedTasksContext;
+    const [darkTheme, setDarkTheme] = theme;
+    const [backColor, setBackColor] = useState(' ');
+    const [textColor, setTextColor] = useState(' ');
 
     const tasknameRef = useRef();
     const taskPriorityRef = useRef();
@@ -93,6 +96,7 @@ export default function Body() {
             const storedObj = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY));
             if (storedObj.tasks) setTasks((prevTasks) => [...prevTasks, ...storedObj.tasks]);
             if (storedObj.completedTasks) setCompletedTasks(() => storedObj.completedTasks);
+            if (storedObj.theme) setDarkTheme(() => storedObj.theme);
         }
         catch (e) {
             console.log(e.message);
@@ -101,21 +105,31 @@ export default function Body() {
 
     useEffect(() => {
         try {
-            localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify({ tasks: [...tasks], completedTasks: completedTasks }));
+            localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify({ tasks: [...tasks], completedTasks: completedTasks, theme: darkTheme }));
         }
         catch (e) {
             console.log(e.message);
         }
-    }, [tasks, completedTasks]);
+    }, [tasks, completedTasks, darkTheme]);
+
+    useEffect(() => {
+        if(!darkTheme) {
+            setBackColor(() => "white");
+            setTextColor(() => "black");
+        } else {
+            setBackColor(() => "lightblue");
+            setTextColor(() => "lightblue");
+        }
+    }, [darkTheme]);
 
 
     return (
         <div className={styles.body_container} onClick={handleTogglePriorityLabel}>
             <div className={styles.add_tasks_container}>
-                <input ref={tasknameRef} id='add_task_input' className={styles.add_task_input} type='text' placeholder='Add new task' />
+                <input ref={tasknameRef} id='add_task_input' className={styles.add_task_input} style={{backgroundColor: backColor}} type='text' placeholder='Add new task' />
                 <div className={styles.priorities_container}>
-                    <label className={showPriorityLabel === true ? styles.priority_label : styles.hidden_priority_label}>Priority</label>
-                    <select ref={taskPriorityRef} id='select_priority' className={styles.select_priority} name="select_priority">
+                    <label className={showPriorityLabel === true ? styles.priority_label : styles.hidden_priority_label} style={{color: textColor}}>Priority</label>
+                    <select ref={taskPriorityRef} id='select_priority' className={styles.select_priority} style={{backgroundColor: backColor}} name="select_priority">
                         <option value='' style={{ display: 'none' }} defaultValue={true}></option>
                         <option value="low">Low</option>
                         <option value="med">Med</option>
@@ -127,7 +141,6 @@ export default function Body() {
 
             <div className={tasks.length > 0 ? styles.todos_list : styles.hidden_todos_list}>
                 <TodoList className={styles.todo_item} tasks={tasks} removeTask={handleRemoveTask} check_completed={handleCheckComplete} moveTaskUp={moveTaskUp} moveTaskDown={moveTaskDown} />
-                {/*   darkTheme={darkTheme} */}
             </div>
         </div>
     )
