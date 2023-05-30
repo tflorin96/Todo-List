@@ -12,12 +12,6 @@
     margin-top: 20px;
 } 
 
-.app_footer_all_tasks_container p {
-    margin: 0;
-    padding: 10px 0;
-    font-size: 20px;
-}
-
 #clear_all_tasks_button {
     font-size: 16px;
     font-weight: bold;
@@ -33,10 +27,11 @@
     padding: 10px;
 }
 
-.completed_tasks_counter {
+.completed_tasks_counter, .pending_tasks_counter {
     margin: 0;
     padding: 10px 0;
     font-size: 20px;
+    color: var(--font-color);
 }
 
 .app_footer_completed_tasks_container {
@@ -58,7 +53,7 @@
 }
 
 @media (max-width: 599px) {
-    .app_footer_all_tasks_container p, .completed_tasks_counter {
+    .pending_tasks_counter, .completed_tasks_counter {
         padding: 5px 0;
         font-size: 14px;
         font-weight: bold;
@@ -73,7 +68,7 @@
 }
 
 @media (min-width: 600px) and (max-width: 767px) {
-    .app_footer_all_tasks_container p, .completed_tasks_counter {
+    .pending_tasks_counter, .completed_tasks_counter {
         padding: 5px 0;
         font-size: 17px;
         font-weight: bold;

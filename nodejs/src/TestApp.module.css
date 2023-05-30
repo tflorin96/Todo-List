@@ -1,174 +1,181 @@
 * {
-    box-sizing: border-box;
-    min-width: 0;
-    min-height: 0;
+  box-sizing: border-box;
+  min-width: 0;
+  min-height: 0;
 }
 
 .app {
-    position: relative;
-    width: 40%;
-    min-width: 310px;
-    margin: 10% auto;
-    padding: 10px 20px;
-    background-color: white;
-    border-radius: 4px;
-    border: 1px green solid;
-    font-family: Arial, Helvetica, sans-serif;
+  position: relative;
+  width: 40%;
+  min-width: 310px;
+  margin: 10% auto;
+  padding: 10px 20px;
+  background-color: var(--container-bg);
+  border-radius: 4px;
+  border: 1px green solid;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 .themeSlider {
-    position: absolute;
-    top: 20px;
-    right: 20px;
+  position: absolute;
+  top: 20px;
+  right: 20px;
 }
 
 
 .switch {
-    font-size: 17px;
-    position: relative;
-    display: inline-block;
-    width: 64px;
-    height: 34px;
-  }
-  
-  .switch input {
-    opacity: 0;
-    width: 0;
-    height: 0;
-  }
-  
-  .slider {
-    position: absolute;
-    cursor: pointer;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: #73C0FC;
-    transition: .4s;
-    border-radius: 30px;
-  }
-  
-  .slider:before {
-    position: absolute;
-    content: "";
-    height: 30px;
-    width: 30px;
-    border-radius: 20px;
-    left: 2px;
-    bottom: 2px;
-    z-index: 2;
-    background-color: #e8e8e8;
-    transition: .4s;
-  }
-  
-  .sun svg {
-    position: absolute;
-    top: 6px;
-    left: 36px;
-    z-index: 1;
-    width: 24px;
-    height: 24px;
-  }
-  
-  .moon svg {
-    fill: #73C0FC;
-    position: absolute;
-    top: 5px;
-    left: 5px;
-    z-index: 1;
-    width: 24px;
-    height: 24px;
-  }
-  
-  /* .switch:hover */.sun svg {
-    animation: rotate 15s linear infinite;
-  }
-  
-  @keyframes rotate {
-   
-    0% {
-      transform: rotate(0);
-    }
-  
-    100% {
-      transform: rotate(360deg);
-    }
-  }
-  
-  /* .switch:hover */.moon svg {
-    animation: tilt 5s linear infinite;
-  }
-  
-  @keyframes tilt {
-   
-    0% {
-      transform: rotate(0deg);
-    }
-  
-    25% {
-      transform: rotate(-10deg);
-    }
-  
-    75% {
-      transform: rotate(10deg);
-    }
-  
-    100% {
-      transform: rotate(0deg);
-    }
-  }
-  
-  .input:checked + .slider {
-    background-color: #183153;
-  }
-  
-  .input:focus + .slider {
-    box-shadow: 0 0 1px #183153;
-  }
-  
-  .input:checked + .slider:before {
-    transform: translateX(30px);
+  font-size: 17px;
+  position: relative;
+  display: inline-block;
+  width: 64px;
+  height: 34px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #73C0FC;
+  transition: .4s;
+  border-radius: 30px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 30px;
+  width: 30px;
+  border-radius: 20px;
+  left: 2px;
+  bottom: 2px;
+  z-index: 2;
+  background-color: #e8e8e8;
+  transition: .4s;
+}
+
+.sun svg {
+  position: absolute;
+  top: 6px;
+  left: 36px;
+  z-index: 1;
+  width: 24px;
+  height: 24px;
+}
+
+.moon svg {
+  fill: #73C0FC;
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  z-index: 1;
+  width: 24px;
+  height: 24px;
+}
+
+/* .switch:hover */
+.sun svg {
+  animation: rotate 15s linear infinite;
+}
+
+@keyframes rotate {
+
+  0% {
+    transform: rotate(0);
   }
 
-  @media (max-width: 599px) {
-    .app {
-        width: 90%;
-        padding: 10px 10px;
-    }
-    .themeSlider {
-        position: absolute;
-        top: 15px;
-        right: 10px;
-    }
-    .switch {
-        width: 58px;
-        height: 28px;
-    }
-    .slider:before {
-        height: 24px;
-        width: 24px;
-    }
-    .sun svg, .moon svg {
-        width: 20px;
-        height: 17px;
-    }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* .switch:hover */
+.moon svg {
+  animation: tilt 5s linear infinite;
+}
+
+@keyframes tilt {
+
+  0% {
+    transform: rotate(0deg);
+  }
+
+  25% {
+    transform: rotate(-10deg);
+  }
+
+  75% {
+    transform: rotate(10deg);
+  }
+
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+.input:checked+.slider {
+  background-color: #183153;
+}
+
+.input:focus+.slider {
+  box-shadow: 0 0 1px #183153;
+}
+
+.input:checked+.slider:before {
+  transform: translateX(30px);
+}
+
+@media (max-width: 599px) {
+  .app {
+    width: 90%;
+    padding: 10px 10px;
+  }
+
+  .themeSlider {
+    position: absolute;
+    top: 15px;
+    right: 10px;
+  }
+
+  .switch {
+    width: 58px;
+    height: 28px;
+  }
+
+  .slider:before {
+    height: 24px;
+    width: 24px;
+  }
+
+  .sun svg,
+  .moon svg {
+    width: 20px;
+    height: 17px;
+  }
 }
 
 @media (min-width: 600px) and (max-width: 767px) {
-    .app {
-        width: 80%;
-    }
+  .app {
+    width: 80%;
+  }
 }
 
 @media (min-width: 768px) and (max-width: 1365px) {
-    .app {
-        width: 60%;
-    }
+  .app {
+    width: 60%;
+  }
 }
 
 @media (min-width: 1366px) and (max-width: 1920px) {
-    .app {
-        width: 50%;
-    }
+  .app {
+    width: 50%;
+  }
 }

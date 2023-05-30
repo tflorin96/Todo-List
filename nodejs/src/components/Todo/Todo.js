@@ -1,12 +1,8 @@
 import { React, useEffect, useState, useRef } from 'react';
 import styles from './Todo.module.css';
-import { useTasksContext } from '../../context/TaskContext';
 
 function Todo({ task, removeTask, check_completed, moveTaskUp, moveTaskDown, saveNewTaskName, saveTaskPriority }) {
 
-  const { theme } = useTasksContext();
-  const [darkTheme, setDarkTheme] = theme;
-  const [backColor, setBackColor] = useState(' ');
   const [containerColor, setContainerColor] = useState(' ');
 
   const nameRef = useRef();
@@ -68,13 +64,6 @@ function Todo({ task, removeTask, check_completed, moveTaskUp, moveTaskDown, sav
     });
   }, [task.priority]);
 
-  useEffect(() => {
-    if (!darkTheme) {
-      setBackColor(() => "white");
-    } else {
-      setBackColor(() => "lightblue");
-    }
-  }, [darkTheme]);
 
   return (
     <div className={styles.large_container} style={{ backgroundColor: containerColor }} >
@@ -87,9 +76,9 @@ function Todo({ task, removeTask, check_completed, moveTaskUp, moveTaskDown, sav
       <div className={styles.todo_container} >
         <input className={styles.check_completed} id='check_completed' type='checkbox' onClick={handleCheckComplete} checked={task.completed} />
         <p ref={nameRef} className={styles.task_name} id='task_name' onClick={editTaskName}>{task.name}</p>
-        <input ref={editNameRef} className={styles.task_name} type='text' style={{ display: 'none', backgroundColor: backColor }} onBlur={handleUpdateTaskName} />
+        <input ref={editNameRef} className={styles.task_name} type='text' style={{ display: 'none', backgroundColor: 'var(--input-bg' }} onBlur={handleUpdateTaskName} />
         <p ref={priorityRef} className={styles.task_priority} onClick={editTaskPriority}>{task.priority}</p>
-        <select ref={editPriorityRef} id='edit_priority' className={styles.task_priority} style={{ display: 'none', backgroundColor: backColor }} name="edit_priority" onBlur={handleUpdateTaskPriority}>
+        <select ref={editPriorityRef} id='edit_priority' className={styles.task_priority} style={{ display: 'none', backgroundColor: 'var(--input-bg' }} name="edit_priority" onBlur={handleUpdateTaskPriority}>
           <option value='' style={{ display: 'none' }} defaultValue={true}></option>
           <option value="low">Low</option>
           <option value="med">Med</option>

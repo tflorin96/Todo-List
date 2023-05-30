@@ -6,3 +6,15 @@ html {
     background: -webkit-linear-gradient(to right, #8594a0,#cacdce, #8594a0);
     background: linear-gradient(to right, #8594a0,#cacdce, #8594a0);
 }
+
+:root {
+    --container-bg: #e1e1ff;
+    --input-bg: #e1e1ff;
+    --font-color: black;
+  }
+  
+  [data-darkTheme=true] {
+    --container-bg: rgb(5 5 10 / 64%);
+    --input-bg: #e1e1ff;
+    --font-color: #e1e1ff;
+  }
