@@ -1,9 +1,20 @@
 html {
     min-width: 100%;
     min-height: 100%;
-    background: cyan;
 
-    background-image: -moz-linear-gradient(45deg, #53a0fd 0%, cyan 100%) ;
-    background-image: -webkit-gradient(linear, left bottom, right top, color-stop(0%, #53a0fd), color-stop(100%, cyan));
-    background-image: linear-gradient(45deg, #53a0fd 0%, cyan 100%);
+    background: #8594a0;
+    background: -webkit-linear-gradient(to right, #8594a0,#cacdce, #8594a0);
+    background: linear-gradient(to right, #8594a0,#cacdce, #8594a0);
 }
+
+:root {
+    --container-bg: #e1e1ff;
+    --input-bg: #e1e1ff;
+    --font-color: black;
+  }
+  
+  [data-darkTheme=true] {
+    --container-bg: rgb(5 5 10 / 64%);
+    --input-bg: #e1e1ff;
+    --font-color: #e1e1ff;
+  }
