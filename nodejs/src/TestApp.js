@@ -16,9 +16,9 @@ export default function TestApp() {
 
     useEffect(() => {
         if(!darkTheme) {
-            document.getElementById('themeInput').setAttribute('checked', setIsChecked(false));
+            document.getElementById('themeInput').setAttribute('checked', setIsChecked(() => false));
         } else {
-            document.getElementById('themeInput').setAttribute('checked', setIsChecked(true));
+            document.getElementById('themeInput').setAttribute('checked', setIsChecked(() => true));
         }
     }, [darkTheme]);
 
